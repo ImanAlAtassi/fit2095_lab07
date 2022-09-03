@@ -8,7 +8,7 @@ var parcelSchema = mongoose.Schema({
     },
     address: {type: String},
     weight: {type: Number},
-    fragile: {type: String}
+    fragile: {type: Boolean}
 });
 
 module.exports = mongoose.model('Parcel', parcelSchema);
