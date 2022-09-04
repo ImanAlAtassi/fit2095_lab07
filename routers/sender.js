@@ -44,17 +44,13 @@ module.exports = {
                 let newParcelDetails = req.body.parcel;
                 newParcelDetails._id = new mongoose.Types.ObjectId();
                 newParcelDetails.sender = req.body.senderId;
-                Parcel.create(newParcelDetails, function (err, parcel) {
-                    if (err) return res.status(400).json(err);
-
-                    res.json(parcel);
-                });
+                let parcel = new Parcel(newParcelDetails);
+                parcel.save(function (err) {});
 
 
-                sender.parcels.push(newParcelDetails._id);
+                sender.parcels.push(parcel._id);
                 sender.save(function (err) {
                     if (err) return res.status(500).json(err);
-
                     res.json(sender);
                 });
 
