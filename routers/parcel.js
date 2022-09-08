@@ -43,6 +43,21 @@ module.exports = {
         });
     },
 
+    deleteOne: function (req, res) {
+
+        if (req.body.id){
+            Parcel.findOneAndRemove({ _id: req.body.id }, function (err) {
+                if (err) return res.status(400).json(err);
+                res.json();
+            });  
+        } else if (req.body.weight){
+            Parcel.findOneAndRemove({ weight: req.body.weight }, function (err) {
+                if (err) return res.status(400).json(err);
+                 res.json();
+            });   
+        } 
+    },
+
 
 
 };

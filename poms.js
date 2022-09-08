@@ -32,5 +32,6 @@ app.post('/parcels', parcels.createOne);
 app.get('/parcels', parcels.getAll);
 app.get('/parcel', parcels.getByAddress);
 app.put('/parcel', parcels.updateOne);
+app.delete('/parcel', parcels.deleteOne);
 
 
